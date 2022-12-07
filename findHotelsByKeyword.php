@@ -59,7 +59,12 @@ class Hotels
         ]
     ]; 
     
-    public function find(string $keyword)
+    /**
+     * @param string $keyword
+     * 
+     * @return string[]
+     */ 
+    public function find(string $keyword): array
     {
         $hotels = [];
         $keywordLower = strtolower($keyword);
@@ -83,7 +88,11 @@ class Hotels
         return $hotels;
     }
     
-    public function check(bool $printHotels = true, bool $apiResult = true)
+    /**
+     * @param bool $printHotels
+     * @param bool $apiResult
+     */ 
+    public function check(bool $printHotels = true, bool $apiResult = true):void
     {
         
         foreach($this->cases as $case) {
@@ -106,7 +115,13 @@ class Hotels
         }
     }
     
-    public function api(string $keyword, array $hotels)
+    /**
+     * @param string $keyword
+     * @param array $hotels
+     * 
+     * @return string
+     */ 
+    public function api(string $keyword, array $hotels): string
     {
         $apiResult = [
             'keyword' => $keyword,
@@ -119,4 +134,4 @@ class Hotels
 }
 
 $hotels = new Hotels();
-$hotels->check(false);
+$hotels->check(false, true);
